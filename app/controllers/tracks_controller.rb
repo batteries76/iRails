@@ -1,12 +1,12 @@
 class TracksController < ApplicationController
   before_action :set_track, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :track_params, only: [:create, :update]
+  before_action :track_params, only: [:update]
 
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = Track.all()
   end
 
   # GET /tracks/1
@@ -17,6 +17,7 @@ class TracksController < ApplicationController
   # GET /tracks/new
   def new
     @track = Track.new
+    @albums = Album.all()
   end
 
   # GET /tracks/1/edit
@@ -41,8 +42,11 @@ class TracksController < ApplicationController
   def create
     puts "IN TRACK CREATE"
     puts params
-    @track = Track.new(track_params)
-    album = Album.find(params[:track][:album_id])
+    @track = Track.new()
+    album = Album.find(params[:album_id])
+    @track.artist = album.artist
+    @track.title = params[:track][:title]
+    @track.length = params[:track][:length]
 
     respond_to do |format|
       if @track.save
