@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  album: one
+  length: 1
+  artist: one
+
+two:
+  title: MyString
+  album: two
+  length: 1
+  artist: two

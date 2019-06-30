@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+    <p>
+        Welcome, <%= current_user.email %>
+    </p>
+    <p>
+        <%= link_to('Edit registration', edit_user_registration_path) %>
+    </p>
+<% else %>
+    <p>
+        <%= link_to('Register', new_user_registration_path) %>
+    </p>
+<% end %>

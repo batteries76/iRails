@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <h1><%= @artist.name %></h1>
+</p>
+
+<p>
+  <strong>Band:</strong>
+  <%= @artist.band %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @artist.active %>
+</p>
+
+<h2> Albums for <%= @artist.name %> </h2>
+
+<% if @albums %>
+  <% @albums.each do |album| %>
+    <h3> <%= album.title %> </h3>
+  <% end %>
+<% else %>
+  <h3> Artist has no albums added </h3>
+<% end %>
+
+<h2>New Album</h2>
+
+<%= render :partial => 'album_form', :locals => { album: @album, artist: @artist } %>
+
+<h2> Comments about <%= @artist.name %> </h2>
+
+<% if @current_artist_comments %>
+  <% @current_artist_comments.each do |comment| %>
+    <h3> User, <%= comment.user.email %> wrote: </h3>
+    <h4> content: <%= comment.content %> </h4>
+  <% end %>
+<% else %>
+  <h3> There are no comments about <%= @artist.name %> </h3>
+<% end %>
+
+<h3> Add a comment! </h3>
+<%= form_with url: '/artists_comments', method: 'post', model: @artist_comment do |form| %>
+  <%= form.hidden_field :artist_id, value: @current_artist %>
+  <%= form.hidden_field :user_id, value: @current_user %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
