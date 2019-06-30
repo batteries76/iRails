@@ -18,9 +18,11 @@
 <h2> Albums for <%= @artist.name %> </h2>
 
 <% if @albums %>
+  <ul>
   <% @albums.each do |album| %>
-    <h3> <%= album.title %> </h3>
+    <li> <%= link_to album.title, "/albums/#{album.id}" %> </li>
   <% end %>
+  </ul>
 <% else %>
   <h3> Artist has no albums added </h3>
 <% end %>

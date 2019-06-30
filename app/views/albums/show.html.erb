@@ -27,7 +27,7 @@
 <% if @album_tracks %>
   <ul>
   <% @album_tracks.each do |album_track| %>
-    <li> <%= album_track.track.title %> </li>
+    <li> <%= link_to album_track.track.title, "/tracks/#{album_track.track.id}" %> </li>
   <% end %>
   </ul>
 <% else %>
