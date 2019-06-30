@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Artist:</strong>
-  <%= @album.title %>
+  <strong>Album:</strong>
+  <h3><%= @album.title %></h3>
 </p>
 
 <p>
-  <strong>Year:</strong>
-  <%= @album.title %>
+  <strong>Artist:</strong>
+  <%= @album.artist.name %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Length:</strong>
-  <%= @album.length %>
+  <%= @album.length %> minutes
 </p>
 
 <p id="notice"><%= notice %></p>
