@@ -22,7 +22,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2> Tracks on <%= @album.title %> </h2>
+<h3> Tracks on <%= @album.title %> </h3>
 
 <% if @album_tracks %>
   <ul>
@@ -34,11 +34,13 @@
   <h3> <%= @album.title %> has no tracks added </h3>
 <% end %>
 
-<h2>Existing Track</h2>
+<h3><strong> Add a track to <%= @album.title %>? <strong></h3>
+
+<h3>Existing Track</h3>
 
 <%= render :partial => 'tracks/existing_track_form', :locals => { album: @album, artist: @artist, track: @track, all_tracks: @all_tracks, options: create_options } %>
 
-<h2>New Track</h2>
+<h3>..or a New Track</h3>
 
 <%= render :partial => 'tracks/tracks_form', :locals => { album: @album, artist: @artist, track: @track, all_tracks: @all_tracks, options: create_options } %>
 

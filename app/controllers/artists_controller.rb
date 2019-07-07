@@ -4,6 +4,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
+    authorize Artist
     @artists = Artist.all
   end
 

@@ -178,7 +178,6 @@ Album.find(6).tracks << Track.find(10)
 Album.find(6).tracks << Track.find(11)
 Album.find(5).tracks << Track.find(12)
 Album.find(5).tracks << Track.find(13)
-Album.find(5).tracks << Track.find(14)
-Album.find(7).tracks << Track.find(15)
+Album.find(7).tracks << Track.find(14)
 
-puts "The SEED FILE ran"
+puts "The SEED FILE ran, and was seeded with ARTISTS, ALBUMS, AND TRACKS"

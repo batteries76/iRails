@@ -27,7 +27,7 @@
   <h3> Artist has no albums added </h3>
 <% end %>
 
-<h2>New Album</h2>
+<h3>Add a new album to <%= @artist.name %>? </h3>
 
 <%= render :partial => 'album_form', :locals => { album: @album, artist: @artist } %>
 
@@ -35,8 +35,14 @@
 
 <% if @current_artist_comments %>
   <% @current_artist_comments.each do |comment| %>
-    <h3> User, <%= comment.user.email %> wrote: </h3>
-    <h4> content: <%= comment.content %> </h4>
+    <h6><strong> User, <%= comment.user.email %> wrote: </strong></h6>
+    <div class="comment-box">
+      <%= comment.content %> 
+    </div>
+    <%# if current_user == comment.user %>
+    <% if policy(comment).edit? %>
+      <%= link_to 'Edit Comment', edit_artists_comment_path(comment) %>
+    <% end %>
   <% end %>
 <% else %>
   <h3> There are no comments about <%= @artist.name %> </h3>
@@ -46,8 +52,10 @@
 <%= form_with url: '/artists_comments', method: 'post', model: @artist_comment do |form| %>
   <%= form.hidden_field :artist_id, value: @current_artist %>
   <%= form.hidden_field :user_id, value: @current_user %>
-  <%= form.text_field :content %>
-  <%= form.submit %>
+  <p>
+    <%= form.text_field :content %>
+  </p>
+  <%= form.submit "Comment on #{@artist.name}" %>
 <% end %>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |

@@ -1,6 +1,6 @@
 class ArtistsCommentsController < ApplicationController
   before_action :set_artists_comment, only: [:show, :edit, :update, :destroy]
-  before_action :artist_comment_params
+  before_action :artist_comment_params, only: [:create]
 
   # GET /artists_comments
   # GET /artists_comments.json
@@ -20,6 +20,7 @@ class ArtistsCommentsController < ApplicationController
 
   # GET /artists_comments/1/edit
   def edit
+    authorize @artists_comment
   end
 
   # POST /artists_comments
@@ -50,6 +51,7 @@ class ArtistsCommentsController < ApplicationController
   # PATCH/PUT /artists_comments/1
   # PATCH/PUT /artists_comments/1.json
   def update
+    authorize @artists_comment
     respond_to do |format|
       if @artists_comment.update(artists_comment_params)
         format.html { redirect_to @artists_comment, notice: 'Artists comment was successfully updated.' }

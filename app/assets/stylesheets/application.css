@@ -33,3 +33,7 @@
     flex-direction: row;
     justify-content: space-around;
  }
+
+ .comment-box {
+    border: solid 1px black;
+ }
