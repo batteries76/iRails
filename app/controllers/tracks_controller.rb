@@ -16,6 +16,7 @@ class TracksController < ApplicationController
 
   # GET /tracks/new
   def new
+    authorize Track
     @track = Track.new
     @albums = Album.all()
   end

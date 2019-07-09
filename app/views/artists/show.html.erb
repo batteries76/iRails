@@ -48,14 +48,18 @@
   <h3> There are no comments about <%= @artist.name %> </h3>
 <% end %>
 
-<h3> Add a comment! </h3>
-<%= form_with url: '/artists_comments', method: 'post', model: @artist_comment do |form| %>
-  <%= form.hidden_field :artist_id, value: @current_artist %>
-  <%= form.hidden_field :user_id, value: @current_user %>
-  <p>
-    <%= form.text_field :content %>
-  </p>
-  <%= form.submit "Comment on #{@artist.name}" %>
+<% if user_signed_in? %>
+  <h3> Add a comment! </h3>
+  <%= form_with url: '/artists_comments', method: 'post', model: @artist_comment do |form| %>
+    <%= form.hidden_field :artist_id, value: @current_artist %>
+    <%= form.hidden_field :user_id, value: @current_user %>
+    <p>
+      <%= form.text_field :content %>
+    </p>
+    <%= form.submit "Comment on #{@artist.name}" %>
+  <% end %>
+<% else %>
+  <h3> Sign in to add a comment </h3>
 <% end %>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |

@@ -1,10 +1,10 @@
 class ArtistCommentPolicy < ApplicationPolicy
-    attr_reader :user, :artists_comment
+    # attr_reader :user, :artists_comment
   
-    def initialize(user, artists_comment)
-        @user = user
-        @artists_comment = artists_comment
-    end
+    # def initialize(user, artists_comment)
+    #     @user = user
+    #     @artists_comment = artists_comment
+    # end
 
     def edit?
         puts "IN PUNDIT EDIT"

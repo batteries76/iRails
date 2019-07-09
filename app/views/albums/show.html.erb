@@ -20,6 +20,16 @@
   <%= @album.length %> minutes
 </p>
 
+<p> => <%= @album.likes.count %> <%= (@album.likes.count) == 1 ? 'Like' : 'Likes' %></p>
+
+<% if user_signed_in? %>
+  <% if current_user.likes.count == 0 %>
+    <%= button_to 'Like', album_likes_path(@album), method: :post %>
+  <% else %>
+    <%= button_to 'Unlike', "/albums/#{@album.id}/likes", method: :delete %>
+  <% end %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h3> Tracks on <%= @album.title %> </h3>
