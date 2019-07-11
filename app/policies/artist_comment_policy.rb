@@ -9,12 +9,12 @@ class ArtistCommentPolicy < ApplicationPolicy
     def edit?
         puts "IN PUNDIT EDIT"
         # user.admin? or not post.published?
-        @artists_comment.user == @user
+        record.user == user
     end
   
     def update?
         puts "IN PUNDIT UPDATE"
         # user.admin? or not post.published?
-        @artists_comment.user == @user
+        record.user == user
     end
 end

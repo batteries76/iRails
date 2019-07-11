@@ -1,4 +1,4 @@
-<%= form_with(model: artists_comment, url: "/artists/#{artists_comment.id}", method: :post, local: true) do |form| %>
+<%= form_with(model: artists_comment, url: "/artists_comments/#{artists_comment.id}", local: true) do |form| %>
   <% if artists_comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(artists_comment.errors.count, "error") %> prohibited this artists_comment from being saved:</h2>
@@ -16,6 +16,10 @@
   <div class="field">
     <%= form.label :content %>
     <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div class="actions">

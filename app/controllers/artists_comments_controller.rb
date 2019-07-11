@@ -53,8 +53,8 @@ class ArtistsCommentsController < ApplicationController
   def update
     authorize @artists_comment
     respond_to do |format|
-      if @artists_comment.update(artists_comment_params)
-        format.html { redirect_to @artists_comment, notice: 'Artists comment was successfully updated.' }
+      if @artists_comment.update(artist_comment_params)
+        format.html { redirect_to artist_path(@artists_comment.artist), notice: 'Artists comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @artists_comment }
       else
         format.html { render :edit }

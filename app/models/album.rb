@@ -4,4 +4,6 @@ class Album < ApplicationRecord
   has_many :tracks, through: :albums_tracks
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
+
+  validates :title, presence: true
 end
