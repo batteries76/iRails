@@ -256,18 +256,15 @@ puts "ADDED THE ROLES"
 users = [
     {
         email: "a@a.com",
-        password: "123456",
-        role: Role.find(1)
+        password: "123456"
     },
     {
         email: "s@s.com",
-        password: "123456",
-        role: Role.find(2)
+        password: "123456"
     },
     {
         email: "p@p.com",
-        password: "123456",
-        role: Role.find(3)
+        password: "123456"
     }
 ]
 
@@ -275,7 +272,18 @@ users.each do |user|
     User.create!(user)
 end
 
+user = User.find(1)
+user.role = Role.find(1)
+user.save!
+user = User.find(2)
+user.role = Role.find(2)
+user.save!
+user = User.find(3)
+user.role = Role.find(3)
+user.save!
+
 puts "USERS WERE ADDED"
 puts "a@a.com is an admin"
 puts "s@s.com is a standard user"
 puts "p@p.com is a premium user"
+puts "All the passwords are 123456"

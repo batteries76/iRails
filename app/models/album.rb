@@ -5,5 +5,7 @@ class Album < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
 
+  has_one_attached :album_image
+
   validates :title, presence: true
 end
