@@ -15,7 +15,7 @@
     <% @tracks.each do |track| %>
       <tr>
         <td><%= track.title %></td>
-        <td><%= track.length %></td>
+        <td><%= seconds_helper(track.length) %></td>
         <td><%= link_to 'Show', track %></td>
         <td><%= link_to 'Edit', edit_track_path(track) %></td>
         <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
