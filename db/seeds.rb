@@ -33,7 +33,7 @@ albums = [
         artist_id: 1,
         title: "Strangeways Here We Come",
         length: 37,
-        year: 1987
+        year: 1987,
     },
     {
         artist_id: 1,
@@ -94,6 +94,19 @@ albums = [
 albums.each do |album|
     Album.create(album)
 end
+
+file_path = Rails.root + 'app/assets/images/albums'
+
+Album.find(1).album_image.attach(io: File.open(file_path + 'strangeways.jpeg'), filename: 'strangeways.jpeg')
+Album.find(2).album_image.attach(io: File.open(file_path + 'louderbombs.jpeg'), filename: 'louderbombs.jpeg')
+Album.find(3).album_image.attach(io: File.open(file_path + 'soundofsmiths.jpeg'), filename: 'soundofsmiths.jpeg')
+Album.find(4).album_image.attach(io: File.open(file_path + 'hatful.jpeg'), filename: 'hatful.jpeg')
+Album.find(5).album_image.attach(io: File.open(file_path + 'bonadrag.jpeg'), filename: 'binadrag.jpeg')
+Album.find(6).album_image.attach(io: File.open(file_path + 'vauxhall.jpeg'), filename: 'vauxhall.jpeg')
+Album.find(7).album_image.attach(io: File.open(file_path + 'yourarsenal.jpeg'), filename: 'yourarsenal.jpeg')
+Album.find(8).album_image.attach(io: File.open(file_path + 'yearsrefusal.jpeg'), filename: 'yearsrefusal.jpeg')
+Album.find(9).album_image.attach(io: File.open(file_path + 'angeldust.jpeg'), filename: 'angeldust.jpeg')
+Album.find(10).album_image.attach(io: File.open(file_path + 'kingforaday.jpeg'), filename: 'kingforaday.jpeg')
 
 tracks = [
     {

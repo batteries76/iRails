@@ -5,6 +5,12 @@
   <h3><%= @album.title %></h3>
 </p>
 
+<% if @album.album_image.attached? %>
+  <td><%= image_tag @album.album_image.service_url %></td>
+<% else %>
+  <td>image missing</td>
+<% end %>
+
 <p>
   <strong>Artist:</strong>
   <%= @album.artist.name %>
@@ -20,7 +26,7 @@
   <%= @album.length %> minutes
 </p>
 
-<p> => <%= @album.likes.count %> <%= (@album.likes.count) == 1 ? 'Like' : 'Likes' %></p>
+<p> LIKES => <%= @album.likes.count %> <%= (@album.likes.count) == 1 ? 'Like' : 'Likes' %></p>
 
 <% if user_signed_in? %>
   <% if current_user.likes.count == 0 %>
@@ -28,6 +34,8 @@
   <% else %>
     <%= button_to 'Unlike', "/albums/#{@album.id}/likes", method: :delete %>
   <% end %>
+<% else %>
+  <p>Sign in to like this album</p>
 <% end %>
 
 <p id="notice"><%= notice %></p>

@@ -37,3 +37,8 @@
  .comment-box {
     border: solid 1px black;
  }
+
+ .index-album-image {
+    width: 50px;
+    object-fit: cover;
+ }
