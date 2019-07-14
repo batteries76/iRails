@@ -108,6 +108,33 @@ Album.find(8).album_image.attach(io: File.open(file_path + 'yearsrefusal.jpeg'),
 Album.find(9).album_image.attach(io: File.open(file_path + 'angeldust.jpeg'), filename: 'angeldust.jpeg')
 Album.find(10).album_image.attach(io: File.open(file_path + 'kingforaday.jpeg'), filename: 'kingforaday.jpeg')
 
+file_path = Rails.root + 'app/assets/images/artists'
+
+Artist.find(2).artist_images.attach(io: File.open(file_path + 'morrissey-main.jpeg'), filename: 'morrissey-main.jpeg')
+Artist.find(2).artist_images.attach(io: File.open(file_path + 'morrissey2.jpeg'), filename: 'morrissey2.jpeg')
+Artist.find(2).artist_images.attach(io: File.open(file_path + 'morrissey3.jpeg'), filename: 'morrissey3.jpeg')
+Artist.find(2).artist_images.attach(io: File.open(file_path + 'morrissey4.jpeg'), filename: 'morrissey4.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths1.jpeg'), filename: 'smiths1.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths2.jpeg'), filename: 'smiths2.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths3.jpeg'), filename: 'smiths3.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths4.jpeg'), filename: 'smiths4.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths5.jpeg'), filename: 'smiths5.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths6.jpeg'), filename: 'smiths6.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths7.jpeg'), filename: 'smiths7.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths8.jpeg'), filename: 'smiths8.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths9.jpeg'), filename: 'smiths9.jpeg')
+Artist.find(1).artist_images.attach(io: File.open(file_path + 'smiths10.jpeg'), filename: 'smiths10.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm1.jpeg'), filename: 'fnm1.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm2.jpeg'), filename: 'fnm2.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm3.jpeg'), filename: 'fnm3.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm4.jpeg'), filename: 'fnm4.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm5.jpeg'), filename: 'fnm5.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm6.jpeg'), filename: 'fnm6.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm7.jpeg'), filename: 'fnm7.jpeg')
+Artist.find(3).artist_images.attach(io: File.open(file_path + 'fnm8.jpeg'), filename: 'fnm8.jpeg')
+
+puts "Added IMAGES to the ARTISTS"
+
 tracks = [
     {
         title: "Panic",
@@ -234,11 +261,11 @@ Album.find(6).tracks << Track.find(11)
 Album.find(5).tracks << Track.find(12)
 Album.find(5).tracks << Track.find(13)
 Album.find(7).tracks << Track.find(14)
-Album.find(9).tracks << Track.find(15)
-Album.find(9).tracks << Track.find(16)
-Album.find(9).tracks << Track.find(17)
-Album.find(10).tracks << Track.find(18)
-Album.find(10).tracks << Track.find(19)
+Album.find(10).tracks << Track.find(15)
+Album.find(10).tracks << Track.find(16)
+Album.find(10).tracks << Track.find(17)
+Album.find(9).tracks << Track.find(18)
+Album.find(9).tracks << Track.find(19)
 
 puts "The SEED FILE ran, and was seeded with ARTISTS, ALBUMS, AND TRACKS"
 

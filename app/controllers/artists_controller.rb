@@ -37,7 +37,9 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(artist_params)
-
+    artist_params[:artist_images].each do |image|
+      @artist.artist_images.attach(image)
+    end
     respond_to do |format|
       if @artist.save
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
@@ -52,6 +54,9 @@ class ArtistsController < ApplicationController
   # PATCH/PUT /artists/1
   # PATCH/PUT /artists/1.json
   def update
+    artist_params[:artist_images].each do |image|
+      @artist.artist_images.attach(image)
+    end
     respond_to do |format|
       if @artist.update(artist_params)
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
@@ -81,6 +86,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :band, :active, :artist_image)
+      params.require(:artist).permit(:name, :band, :active, artist_images: [])
     end
 end

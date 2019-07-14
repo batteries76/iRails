@@ -5,6 +5,18 @@
   <h1><%= @artist.name %></h1>
 </p>
 
+<% if @artist.artist_images.attached? %>
+  <p class="artist-show-images-container">
+    <% @artist.artist_images.each do |image| %>
+      <%# <p class="artist-show-images-item"> %>
+        <%= image_tag image, class: "artist-show-images-item" %>
+      <%# </p> %>
+    <% end %>
+  </p>
+<% else %>
+  <p> No images yet </p>
+<% end %>
+
 <p>
   <strong>Band:</strong>
   <%= @artist.band %>

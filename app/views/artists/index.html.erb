@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Band</th>
       <th>Active</th>
@@ -15,6 +16,11 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
+        <% if artist.artist_images.attached? %>
+          <td><%= image_tag artist.artist_images[0], class: "index-album-image" %></td>
+        <% else %>
+          <td>image missing</td>
+        <% end %>
         <td><%= artist.name %></td>
         <td><%= artist.band %></td>
         <td><%= artist.active %></td>
